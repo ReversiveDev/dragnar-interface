@@ -1,12 +1,13 @@
 using Raylib_cs;
-using System.Numerics;
 
 class ListBox : Widget
 {
-    ScrollBar scrollBar = new() {
-        Position = new Vector2(332, 200),
+    readonly ScrollBar scrollBar = new() {
+        Position = new(332, 200),
         Height = 200
     };
+    public int Height = 200;
+    public int Width = 200;
 
     public ListBox() : base(150, 200) {
 
@@ -17,12 +18,15 @@ class ListBox : Widget
         int mx = Raylib.GetMouseX();
         int my = Raylib.GetMouseY();
 
+        scrollBar.Position.X = Position.X + Width - scrollBar.Width;
+        scrollBar.Position.Y = Position.Y;
+        scrollBar.Height = Height;
         scrollBar.Update();
     }
 
     public override void Render()
     {
-        Raylib.DrawRectangleLines((int)Position.X, (int)Position.Y, 200, 200, Color.BLACK);
+        Raylib.DrawRectangleLines((int)Position.X, (int)Position.Y, Width, Height, Color.BLACK);
     
 
         scrollBar.Render();

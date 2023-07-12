@@ -3,17 +3,23 @@ using Raylib_cs;
 Raylib.InitWindow(800, 450, "raylib [core] example - basic window");
 Raylib.SetTargetFPS(60);
 
+// GUI.Widgets.Add(new Button()
+// {
+//     Label = "Press Me"
+// });
+// GUI.Widgets.Add(new ScrollBar());
+// GUI.Widgets.Add(new CheckBox());
+GUI.Widgets.Add(new ListBox()
+{
+    Position = new(0, 327),
+    Height = 100,
+    Width = 800
+});
 GUI.Widgets.Add(new InputBox
 {
-    Width = 200
+    Position = new(0, 426),
+    Width = 800
 });
-GUI.Widgets.Add(new Button()
-{
-    Label = "Press Me"
-});
-GUI.Widgets.Add(new ScrollBar());
-GUI.Widgets.Add(new ListBox());
-GUI.Widgets.Add(new CheckBox());
 
 while (!Raylib.WindowShouldClose())
 {

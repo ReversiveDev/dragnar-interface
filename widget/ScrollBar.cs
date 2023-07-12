@@ -1,10 +1,10 @@
 using Raylib_cs;
-using System.Numerics;
 
 class ScrollBar : Widget
 {
     int StartY = 0;
     int ScrollY = 0;
+    public int Width = 18;
     public int Height = 150;
 
     public ScrollBar() : base(400, 100) { }
@@ -16,7 +16,7 @@ class ScrollBar : Widget
         int x = (int)Position.X + 2;
         int y = (int)Position.Y + 2 + ScrollY;
 
-        bool isHover = mx >= x && mx <= x + 14 && my >= y && my <= y + 24;
+        bool isHover = mx >= x && mx <= x + Width && my >= y && my <= y + 24;
 
         if (isHover)
         {
@@ -52,7 +52,7 @@ class ScrollBar : Widget
 
     public override void Render()
     {
-        Raylib.DrawRectangleLines((int)Position.X, (int)Position.Y, 18, Height, Color.BLACK);
+        Raylib.DrawRectangleLines((int)Position.X, (int)Position.Y, Width, Height, Color.BLACK);
         Raylib.DrawRectangle((int)Position.X + 2, (int)Position.Y + 2 + ScrollY, 14, 24, Color.GRAY);
     }
 
