@@ -6,6 +6,7 @@ class InputBox : Widget
     int CursorX = 0;
     string Buffer = "";
     public int Width = 150;
+    public string PlaceHolder = "";
 
     public InputBox() : base(100, 100)
     {
@@ -55,7 +56,11 @@ class InputBox : Widget
         int offsetX = textWidth - absWidth;
 
         Raylib.BeginScissorMode((int)Position.X, (int)Position.Y, Width, 24);
+        if(Buffer.Length > 0) {
         Raylib.DrawText(Buffer, (int)Position.X + 5 + offsetX, (int)Position.Y + 4, 18, Color.BLACK);
+        }else {
+            Raylib.DrawText(PlaceHolder, (int)Position.X + 5, (int)Position.Y + 4, 18, Color.GRAY);
+        }
         Raylib.EndScissorMode();
 
         if (Focused)

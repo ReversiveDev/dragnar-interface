@@ -18,7 +18,8 @@ GUI.Widgets.Add(new ListBox()
 GUI.Widgets.Add(new InputBox
 {
     Position = new(0, 426),
-    Width = 800
+    Width = 800,
+    PlaceHolder = "Escreva sua mensagem aqui."
 });
 
 while (!Raylib.WindowShouldClose())
